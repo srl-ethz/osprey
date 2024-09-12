@@ -1,0 +1,40 @@
+
+add_executable(vicon_datastreamer_original src/ViconDataStreamSDK_CPPTest.cpp)
+target_include_directories(vicon_datastreamer_original PUBLIC include)
+target_include_directories(vicon_datastreamer_original PRIVATE src)
+target_include_directories(vicon_datastreamer_original  PRIVATE lib)
+
+target_link_libraries(vicon_datastreamer_original  
+ViconDataStreamSDK_lib
+)
+
+target_include_directories(vicon_datastreamer_original PUBLIC include)
+
+
+add_executable(vicon_datastreamer_commented src/vicon_commented.cpp)
+target_include_directories(vicon_datastreamer_commented PUBLIC include)
+target_include_directories(vicon_datastreamer_commented PRIVATE src)
+target_include_directories(vicon_datastreamer_commented PRIVATE lib)
+
+target_link_libraries(vicon_datastreamer_commented
+ViconDataStreamSDK_lib
+)
+
+target_include_directories(vicon_datastreamer_commented PUBLIC include)
+
+
+add_executable(vicon_datastreamer_cleaned src/vicon_cleaned.cpp)
+target_include_directories(vicon_datastreamer_cleaned PUBLIC include)
+target_include_directories(vicon_datastreamer_cleaned PRIVATE src)
+target_include_directories(vicon_datastreamer_cleaned PRIVATE lib)
+
+target_link_libraries(vicon_datastreamer_cleaned
+ViconDataStreamSDK_lib
+)
+
+target_include_directories(vicon_datastreamer_cleaned PUBLIC include)
+
+
+
+
+

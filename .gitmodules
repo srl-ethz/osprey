@@ -1,0 +1,3 @@
+[submodule "src/ros2-vicon-receiver"]
+	path = src/ros2-vicon-receiver
+	url = https://github.com/srl-ethz/ros2-vicon-receiver.git

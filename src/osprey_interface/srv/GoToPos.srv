@@ -1,0 +1,7 @@
+float32 x_ref
+float32 y_ref
+float32 z_ref
+float32 yaw_ref
+---
+bool success
+string message

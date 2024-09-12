@@ -1,0 +1,5 @@
+int32 mode
+float32 front_angle_deg
+float32 back_angle_deg
+---
+bool success

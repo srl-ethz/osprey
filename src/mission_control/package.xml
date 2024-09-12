@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>mission_control</name>
+  <version>0.9.0</version>
+  <description>Mission control library for handling ROS interface and command logic.</description>
+  <maintainer email="rkk@ethz.ch">Soft Robotics Lab</maintainer>
+  <license>http://www.apache.org/licenses/LICENSE-2.0</license>
+  <license file="LICENSE">Apache 2.0</license>
+
+  <url type="website">https://sites.google.com/view/open-source-soft-platform/open-source-soft-robotic-platform</url>
+  <url type="repository">https://github.com/srl-ethz/osprey</url>
+  <url type="bugtracker">https://github.com/srl-ethz/osprey/issues</url>
+  <author>Soft Robotics Lab</author>
+  <author email="rkk@ethz.ch">Soft Robotics Lab</author>
+
+  <!-- ros rependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  
+  <!-- test dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- custom interfaces -->
+  <depend>osprey_interface</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,6 @@
+float32[3] pos_threshold_m
+int32 time_s
+---
+# result according to return codes
+int32 return_code
+---

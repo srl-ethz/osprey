@@ -1,0 +1,8 @@
+# takeoff height in m
+float32 height 0.7
+---
+# result according to return codes
+int32 return_code
+---
+# stages [0: arm, 1: takeoff, 2: stabilize]
+int32 stage
