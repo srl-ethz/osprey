@@ -1,39 +1,77 @@
 We present the accompanying code and hardware schematics to *[An Open-Source Soft Robotic Platform for Autonomous Aerial Manipulation in the Wild](https://openreview.net/forum?id=SfaB20rjVo)*. This workspace contains all required ROS 2 packages for the platform.
 
+# Workspace Structure
+
+## Environment
+
+Our software stack was developed for ROS2 Foxy. To install ROS2 Foxy, follow the official [installation guide](https://docs.ros.org/en/foxy/Installation.html). We use both Python and C++ for our software stack. Your Python environment for ROS should have the following packages:
+
+### Python
+
+You will need a Python environment for ROS and a separate environment for running segmentation, which is independent of ROS. This makes it easier to try different segmentation algorithms, as you can freely switch the Python version and other dependencies.
+
+```bash
+pip install open3d imagezmq matplotlib spectacularAI
+```
+Our segmentation node runs outside of ROS to make it easier to develop on with conda environments. To set up the environment for the segmentation node:
+
+```bash
+mamba env create -f sam2_environment.yml
+```
+
+In case it is needed, backwards compatibility to ROS1 can be achieved using the [ros1_bridge](https://github.com/ros2/ros1_bridge).
+
+### Other setup
+
+To use a Vicon motion capture system, if you have it, follow the installation guide of the `ros2-vicon-receiver` submodule, which you can find [here](https://github.com/srl-ethz/ros2-vicon-receiver/tree/f99950bee0bbc09b79a0bd06add523d4861433b9).
+
+You should also install [MAVlink](https://mavlink.io/en/) for communication.
+
 ## CAD Files
 CAD files were created with NX Siemens. For best compatibility use NX 1988 to open the files. The assembly file is located at cad_parts/098082_02.prt
-
-# Workspace Structure
 
 ## Packages
 
 ### Quad Control
+Control interface to the PX4 using mavlink.
 
 - API for interactions with the PX4
 
 ### Vicon
+Interface to a motion capture system and to forward pose estimation data to the PX4 (from both motion capture and SLAM systems).
 
 - Publish motion capture pose data from the Vicon system to the ROS 2 network
 - Forward motion capture pose data from the Vicon system to the PX4 controller
+- Publish SLAM data to the PX4 controller
 - Publish telemetry data from the PX4 controller to the ROS 2 network
 
+### Spectacular VIO
+ROS2 wrapper for [Spectacular AI](https://www.spectacularai.com/) SLAM/VIO system using an OAK-D camera.
+
 ### Gripper Control
+ROS2 node that receives gripper commands and forwards them over serial to an Arduino. Also includes Arduino file, which receives commands over serial and controls the servos of the gripper.
 
 - API for interactions with the gripper. 
 
 ### OSPREY Interface
 
+Wrapper for high-level actions.
+
 - Custom ROS interface definitions for the OSPREY workspace.
 
 ## Nodes
 
+These are the nodes you will usually run:
+
 - quad_control
 - mission_control
-- px4_vicon_publisher
-- px4_publisher
-- vicon_publisher_object
+- spectacular_node
+- vio_px4_interface
 - gripper_control
-- vicon_receiver
+- video_sender_node
+
+Outside of ROS:
+- sam2_detection.py
 
 ## Interfaces
 
