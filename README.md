@@ -1,5 +1,8 @@
 We present the accompanying code and hardware schematics to *[An Open-Source Soft Robotic Platform for Autonomous Aerial Manipulation in the Wild](https://openreview.net/forum?id=SfaB20rjVo)*. This workspace contains all required ROS 2 packages for the platform.
 
+## CAD Files
+CAD files were created with NX Siemens. For best compatibility use NX 1988 to open the files. The assembly file is located at cad_parts/098082_02.prt
+
 # Workspace Structure
 
 ## Packages
